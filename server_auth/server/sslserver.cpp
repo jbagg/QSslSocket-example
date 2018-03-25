@@ -94,4 +94,6 @@ void SslServer::rx()
 void SslServer::disconnected()
 {
 	qDebug("Client Disconnected");
+	QTcpSocket* clientSocket = qobject_cast<QTcpSocket*>(sender());
+	clientSocket->deleteLater();
 }
